@@ -16,7 +16,7 @@ node('linux'){
     stage('Deploy'){
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins-id', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
         // some block
-            sh 'aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar ss;//jenkins-bucket-oethx002'
+            sh 'aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar jenkins-bucket-oethx002'
         }
     } 
     
