@@ -14,7 +14,11 @@ node('linux'){
     }
     
     stage('Deploy'){
-        sh 'aws s3 cp target/java-project S3://jenkins/java-pipeline/#14/'
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins-id', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+        // some block
+        }
+
+        
     }
     
     stage('Report'){
