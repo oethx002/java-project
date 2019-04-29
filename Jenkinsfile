@@ -3,7 +3,7 @@ properties([pipelineTriggers([githubPush()])])
 node('linux'){
     
     stage('Unit Tests'){
-        "ant -f test.xml -v"
+        sh "ant -f test.xml -v"
         junit 'reports/result.xml'
     }
     
@@ -22,9 +22,7 @@ node('linux'){
     }
     
     stage('Report'){
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-jenkins-id', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-        // some block
-            aws cloudformation describestack-resources --region us-east-1 --stack-name jenkins
+        
     }
     
 
