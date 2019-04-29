@@ -11,7 +11,7 @@ node('linux'){
     }
     
     stage('Unit Tests'){
-        ant -f test.xml -v
+        sh "ant -f test.xml -v"
         junit 'reports/result.xml'
     }
 }
