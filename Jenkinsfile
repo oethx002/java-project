@@ -14,7 +14,7 @@ node('linux'){
     }
     
     stage('Deploy'){
-        sh 'aws s3 cp target/java-project S3://jenkins/java-pipeline/$(env.BUILD_NUMBER)/'
+        sh 'aws s3 cp target/java-project S3://jenkins/java-pipeline/#14/'
     }
     
     stage('Report'){
