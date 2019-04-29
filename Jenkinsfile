@@ -14,9 +14,6 @@ node('linux'){
     }
     
     stage('Deploy'){
-
-        }
-
         
     }
     
